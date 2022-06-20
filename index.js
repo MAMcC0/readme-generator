@@ -1,7 +1,6 @@
 
 const inquirer = require('inquirer');
 const fs = require('fs');
-const markdown = require('./utils/generateMarkdown');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 
@@ -19,12 +18,10 @@ inquirer
         name: 'description',
     },
     {
-        type: 'checkbox',
-        message: "Do you have installation instructions?",
-        choices: ["Yes", "No"],
-        name: 'installion-confirm',
+        type: 'input',
+        message: "What are you installation instructions?",
+        name: 'installion',
     },
-    /// how to add a conditional in an array for installation confirm, usage instruction, and tests?
     {
         type: "input",
         message: "Please put any relavent usage instructions for your product:",
@@ -53,7 +50,7 @@ inquirer
     {
         type:"checkbox",
         message: "Check which licenses you'd like to attribute to your project.",
-        choices: [],//add licenses choices
+        choices: ["Attribution 4.0 International", "Eclipse Public", "MIT", "Open Database"],
         name:'license',
     }
 ])
@@ -61,7 +58,7 @@ inquirer
 
 // TODO: Create a function to write README file
 .then(data => {
-    fs.writeFile("readMe.md", generateMarkdown(data), (err) =>
+    fs.writeFile("readme.md", generateMarkdown(data), (err) =>
     err ? console.log(err) : console.log('Generating Markdown...'))
 })
 
