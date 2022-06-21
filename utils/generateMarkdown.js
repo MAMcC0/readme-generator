@@ -19,30 +19,45 @@ function renderLicenseBadge({license}) {
 
 
 
-function renderLicenseLink(license) {
-
-  if (license === "Attribution 4.0 International"){
-    link = "(https://creativecommons.org/licenses/by/4.0/)"
-   return link;
- } else if  (license === "Eclipse Public"){
-    link ="(https://opensource.org/licenses/EPL-1.0)";
-    return ;
- } else if (license === "MIT"){
-    link= "(https://opensource.org/licenses/MIT)"
-   return ;
- } else if (license === "Open Database"){
-   link = "(https://opendatacommons.org/licenses/odbl/)"
-   return ;
- }
+function renderLicenseLink({license}) {
+    linkDirection = ""
 
 }
 
 
-function renderLicenseSection(license) {}
+function renderLicenseSection({license}) {
+
+
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
+
+  ## Table of Contents <br>
+
+  ## Description
+  
+  ${data.description}
+
+
+  ## Installation instructions
+  ${data.installation}
+
+  ## Usage
+  ${data.usage}
+
+  ## Contributions
+  ${data.contributions}
+
+  ## Tests
+
+  ${data.tests}
+
+  ## Questions
+
+  ${data.email}<br>
+  ${data.github}
 
 `;
 }

@@ -19,7 +19,7 @@ inquirer
     },
     {
         type: 'input',
-        message: "What are you installation instructions?",
+        message: "What are your installation instructions?",
         name: 'installion',
     },
     {
