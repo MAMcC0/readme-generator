@@ -2,7 +2,7 @@
 
 badge = " ";
 link = " ";
-
+// passes data in from index page to figure out which badge to put on the page
 function renderLicenseBadge(data) {
   
   if (data.license === "Attribution 4.0 International"){
@@ -21,7 +21,7 @@ function renderLicenseBadge(data) {
 }
 
 
-
+/// uses data to figure out which documentation link for license needs to display
 function renderLicenseLink(data) {
   if (data.license === "Attribution 4.0 International"){
     link = "(https://creativecommons.org/licenses/by/4.0/)"
@@ -38,15 +38,15 @@ function renderLicenseLink(data) {
  }
 }
 
-
+//creates the license section to be dynamically rendered
 function renderLicenseSection(data) {
   return `
   ## License
-  This application is covered under the ![]${renderLicenseLink(data)}
+  This application is covered under the [${data.license}](${renderLicenseLink(data)})
   `
 }
 
-// TODO: Create a function to generate markdown for README
+//creates the markdown in a function that is called in the write fs file on index.js
 function generateMarkdown(data) {
   return `# ${data.title}
 

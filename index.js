@@ -4,7 +4,7 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 function init (){
-// TODO: Create an array of questions for user input
+// questions for prompt
 inquirer
 .prompt ([
     {
@@ -56,7 +56,7 @@ inquirer
 ])
 
 
-// TODO: Create a function to write README file
+// promise to write readme file with a console to show if markdown is working
 .then(data => {
     fs.writeFile("READMESample.md", generateMarkdown(data), (err) =>
     err ? console.log(err) : console.log('Generating Markdown...'))
