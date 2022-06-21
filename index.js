@@ -20,7 +20,7 @@ inquirer
     {
         type: 'input',
         message: "What are your installation instructions?",
-        name: 'installion',
+        name: 'installation',
     },
     {
         type: "input",
@@ -58,11 +58,8 @@ inquirer
 
 // TODO: Create a function to write README file
 .then(data => {
-    fs.writeFile("readme.md", generateMarkdown(data), (err) =>
+    fs.writeFile("readme1.md", generateMarkdown(data), (err) =>
     err ? console.log(err) : console.log('Generating Markdown...'))
 })
 
-function init() {}
 
-
-init();
