@@ -1,45 +1,48 @@
 
+
 badge = " ";
 link = " ";
-function renderLicenseBadge({license}) {
-  if (license === "Attribution 4.0 International"){
-     badge = "[!License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)]"
+
+function renderLicenseBadge(data) {
+  
+  if (data.license === "Attribution 4.0 International"){
+     badge = "![](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)"
     return badge;
-  } else if  (license === "Eclipse Public"){
-     badge="[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)]";
+  } else if  (data.license === "Eclipse Public"){
+     badge="![](https://img.shields.io/badge/License-EPL%201.0-red.svg)";
      return badge;
-  } else if (license === "MIT"){
-    badge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]"
+  } else if (data.license === "MIT"){
+    badge = "![](https://img.shields.io/badge/License-MIT-yellow.svg)"
     return badge;
-  } else if (license === "Open Database"){
-    badge = "[![License: ODbL](https://img.shields.io/badge/License-ODbL-brightgreen.svg)]"
+  } else if (data.license === "Open Database"){
+    badge = "![](https://img.shields.io/badge/License-ODbL-brightgreen.svg)"
     return badge;
   }
 }
 
 
 
-function renderLicenseLink({license}) {
-  if (license === "Attribution 4.0 International"){
+function renderLicenseLink(data) {
+  if (data.license === "Attribution 4.0 International"){
     link = "(https://creativecommons.org/licenses/by/4.0/)"
    return link ;
- } else if  (license === "Eclipse Public"){
+ } else if  (data.license === "Eclipse Public"){
     link ="(https://opensource.org/licenses/EPL-1.0)";
     return link;
- } else if (license === "MIT"){
+ } else if (data.license === "MIT"){
     link = "(https://opensource.org/licenses/MIT)"
    return link;
- } else if (license === "Open Database"){
+ } else if (data.license === "Open Database"){
    link = "(https://opensource.org/licenses/MIT)"
    return link ;
  }
 }
 
 
-function renderLicenseSection() {
+function renderLicenseSection(data) {
   return `
   ## License
-  This application is covered under the [!${license}]${renderLicenseLink()}
+  This application is covered under the ![]${renderLicenseLink(data)}
   `
 }
 
@@ -47,10 +50,10 @@ function renderLicenseSection() {
 function generateMarkdown(data) {
   return `# ${data.title}
 
-  ${renderLicenseBadge()}
+  ${renderLicenseBadge(data)}
 
 
-  ## Table of Contents <br>
+  ## Table of Contents
   - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -71,7 +74,7 @@ function generateMarkdown(data) {
   ## Usage
   ${data.usage}
 
- ${renderLicenseSection()}
+ ${renderLicenseSection(data)}
 
   ## Contributions
   ${data.contributions}
@@ -83,8 +86,8 @@ function generateMarkdown(data) {
   ## Questions
 
  Contact me at:
-  (${data.email})
-  (${data.github})
+  ${data.email}
+  ${data.github}
 
 `;
 }
