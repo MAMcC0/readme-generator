@@ -58,7 +58,7 @@ inquirer
 
 // TODO: Create a function to write README file
 .then(data => {
-    fs.writeFile("README.md", generateMarkdown(data), (err) =>
+    fs.writeFile("READMESample.md", generateMarkdown(data), (err) =>
     err ? console.log(err) : console.log('Generating Markdown...'))
 })
 }
