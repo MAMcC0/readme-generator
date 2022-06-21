@@ -29,7 +29,7 @@ inquirer
     },
     {
         type:'input',
-        message: 'How can people contribute to this product?',
+        message: 'How can people contribute to this project?',
         name: 'contributions',
     },
     {

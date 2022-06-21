@@ -1,6 +1,6 @@
 
-badge = "";
-link = ""
+badge = " ";
+link = " ";
 function renderLicenseBadge({license}) {
   if (license === "Attribution 4.0 International"){
      badge = "[!License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)]"
@@ -35,13 +35,19 @@ function generateMarkdown(data) {
   return `# ${data.title}
 
   ## Table of Contents <br>
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributions](#contributions)
+  - [Tests](#tests)
+  - [Questions](#questions)
 
   ## Description
   
   ${data.description}
 
 
-  ## Installation instructions
+  ## Installation
   ${data.installation}
 
   ## Usage
