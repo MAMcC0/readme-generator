@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-
+function init (){
 // TODO: Create an array of questions for user input
 inquirer
 .prompt ([
@@ -58,8 +58,10 @@ inquirer
 
 // TODO: Create a function to write README file
 .then(data => {
-    fs.writeFile("readme1.md", generateMarkdown(data), (err) =>
+    fs.writeFile("README.md", generateMarkdown(data), (err) =>
     err ? console.log(err) : console.log('Generating Markdown...'))
 })
+}
 
+init()
 

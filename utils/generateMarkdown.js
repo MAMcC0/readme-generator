@@ -21,24 +21,26 @@ function renderLicenseBadge({license}) {
 
 function renderLicenseLink({license}) {
   if (license === "Attribution 4.0 International"){
-    link = ""
+    link = "(https://creativecommons.org/licenses/by/4.0/)"
    return link ;
  } else if  (license === "Eclipse Public"){
-    link ="";
+    link ="(https://opensource.org/licenses/EPL-1.0)";
     return link;
  } else if (license === "MIT"){
-    link = ""
+    link = "(https://opensource.org/licenses/MIT)"
    return link;
  } else if (license === "Open Database"){
-   link = ""
+   link = "(https://opensource.org/licenses/MIT)"
    return link ;
  }
 }
 
 
 function renderLicenseSection() {
-
-
+  return `
+  ## License
+  This application is covered under the [!${license}]${renderLicenseLink()}
+  `
 }
 
 // TODO: Create a function to generate markdown for README
@@ -69,7 +71,7 @@ function generateMarkdown(data) {
   ## Usage
   ${data.usage}
 
- 
+ ${renderLicenseSection()}
 
   ## Contributions
   ${data.contributions}
@@ -80,8 +82,9 @@ function generateMarkdown(data) {
 
   ## Questions
 
-  ${data.email}
-  ${data.github}
+ Contact me at:
+  (${data.email})
+  (${data.github})
 
 `;
 }
