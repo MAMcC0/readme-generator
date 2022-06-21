@@ -48,7 +48,7 @@ inquirer
         name:'github',
     },
     {
-        type:"checkbox",
+        type:"list",
         message: "Check which licenses you'd like to attribute to your project.",
         choices: ["Attribution 4.0 International", "Eclipse Public", "MIT", "Open Database"],
         name:'license',

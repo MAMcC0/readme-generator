@@ -20,12 +20,23 @@ function renderLicenseBadge({license}) {
 
 
 function renderLicenseLink({license}) {
-    linkDirection = ""
-
+  if (license === "Attribution 4.0 International"){
+    link = ""
+   return link ;
+ } else if  (license === "Eclipse Public"){
+    link ="";
+    return link;
+ } else if (license === "MIT"){
+    link = ""
+   return link;
+ } else if (license === "Open Database"){
+   link = ""
+   return link ;
+ }
 }
 
 
-function renderLicenseSection({license}) {
+function renderLicenseSection() {
 
 
 }
@@ -34,13 +45,14 @@ function renderLicenseSection({license}) {
 function generateMarkdown(data) {
   return `# ${data.title}
 
-
+  ${renderLicenseBadge()}
 
 
   ## Table of Contents <br>
   - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
+  - [License](#license)
   - [Contributions](#contributions)
   - [Tests](#tests)
   - [Questions](#questions)
@@ -56,6 +68,8 @@ function generateMarkdown(data) {
 
   ## Usage
   ${data.usage}
+
+ 
 
   ## Contributions
   ${data.contributions}
