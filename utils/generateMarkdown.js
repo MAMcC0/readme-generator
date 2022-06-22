@@ -33,7 +33,7 @@ function renderLicenseLink(data) {
     link = "(https://opensource.org/licenses/MIT)"
    return link;
  } else if (data.license === "Open Database"){
-   link = "(https://opensource.org/licenses/MIT)"
+   link = "(https://opensource.org/licenses/odbl/)"
    return link ;
  }
 }
@@ -42,7 +42,7 @@ function renderLicenseLink(data) {
 function renderLicenseSection(data) {
   return `
   ## License
-  This application is covered under the [${data.license}](${renderLicenseLink(data)})
+  This application is covered under the [${data.license}](${renderLicenseLink(data)}) license.
   `
 }
 
@@ -85,9 +85,9 @@ function generateMarkdown(data) {
 
   ## Questions
 
- Contact me at:
-  ${data.email}
-  ${data.github}
+
+  Email: ${data.email}<br />
+  Github: [${data.github}](${data.github})
 
 `;
 }
